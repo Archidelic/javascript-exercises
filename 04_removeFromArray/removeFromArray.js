@@ -15,19 +15,13 @@ The first test on this one is fairly easy, but there are a few things to think a
 - how to deal with multiple optional arguments in a JavaScript function
 - For more information, check out MDN's page on [function arguments](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments) - scroll down to the bit about `Array.from` or the spread operator. You can also check out MDN's page on [rest parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters).*/
 
-const removeFromArray = function (arr, del) {
-  const index = arr.indexOf(del);
+console.log(removeFromArray([1, 2, 3, 4, 4], 4, 3));
 
-  const x = arr.splice(index, 1);
-
-  console.log(`myArray values: ${arr}`);
-  console.log(`variable x value: ${x}`);
-
-  /*for (i = 0; i < arr.length; i++) {
-    if (arr[i] === del) {
-    }*/
-};
-
-removeFromArray([1, 2, 3, 4], 3);
+function removeFromArray(numbers, ...del) {
+  {
+    let filteredNumbers = numbers.filter((number) => !del.includes(number));
+    return filteredNumbers;
+  }
+}
 // Do not edit below this line
 module.exports = removeFromArray;
